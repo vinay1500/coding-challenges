@@ -3,8 +3,14 @@ from collections import Counter
 
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        l, r = 0, len(s1)
+        if len(s1) > len(s2):
+            return False
+        l, r, matches = 0, len(s1), 0
         countS1 = Counter(s1)
+        countS2 = Counter(s2)
+        print(countS1)
+        print(countS2)
+
 
         while r <= len(s2):
             if countS1 != Counter(s2[l:r]):
